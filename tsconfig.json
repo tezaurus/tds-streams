@@ -15,10 +15,4 @@
       "path": "./.nuxt/tsconfig.node.json"
     }
   ],
-	"compilerOptions": {
-		"verbatimModuleSyntax": false,
-		"paths": {
-			"@/*": ["./*"]
-		}
-	}
 }
