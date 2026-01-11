@@ -1,3 +1,4 @@
+import type { CSSProperties } from "vue";
 import type { TCssTulip, TSerializedCssTulip } from "../types/types/Tulips";
 import { wrap } from "./array";
 
@@ -48,4 +49,33 @@ export function getPx(value: any): `${number}px` | undefined {
 
 export function getOverflow(overflow: boolean): 'hidden' | undefined {
 	return overflow ? 'hidden' : undefined;
+}
+
+export function getGrow(grow: boolean): 1 | undefined {
+	return grow ? 1 : undefined;
+}
+
+export function getShrink(shrink: boolean): 0 | undefined {
+	return shrink ? 0 : undefined;
+}
+
+export function getCoverBackground(url: any): CSSProperties | undefined {
+	if (
+		typeof url !== 'string'
+		|| url === ''
+	) {
+		return;
+	}
+
+	const backgroundImage = `url('${url}')`;
+	const backgroundPosition = 'center';
+	const backgroundRepeat = 'no-repeat';
+	const backgroundSize = 'cover';
+
+	return {
+		backgroundImage,
+		backgroundPosition,
+		backgroundRepeat,
+		backgroundSize,
+	};
 }

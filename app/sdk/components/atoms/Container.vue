@@ -19,12 +19,17 @@ import type {
 } from '@/sdk/types/types/ColorToken';
 
 import {
+	getCoverBackground,
 	getCssTulipRule,
+	// getGrow,
 	getOpacityPercent,
 	getOverflow,
 	getPercent,
 	getPx,
+	// getShrink,
 } from '@/sdk/utils/css';
+
+type TContainerSize = 'initial' | 'fill' | 'hug' | number | string;
 
 const props = defineProps({
 	fillColor: {
@@ -36,7 +41,11 @@ const props = defineProps({
 		default: undefined,
 	},
 	reactionColor: {
-		type: String as PropType<ReactionColorToken>,
+		type: String as PropType<FillColorToken>,
+		default: undefined,
+	},
+	backgroundImage: {
+		type: String,
 		default: undefined,
 	},
 	strokeWidth: {
@@ -55,6 +64,38 @@ const props = defineProps({
 		type: [Number, Array] as PropType<number | TCssTulip>,
 		default: 0,
 	},
+	width: {
+		type: [String, Number] as PropType<TContainerSize>,
+		default: 'initial',
+	},
+	minWidth: {
+		type: Number,
+		default: undefined,
+	},
+	maxWidth: {
+		type: Number,
+		default: undefined,
+	},
+	height: {
+		type: [String, Number] as PropType<TContainerSize>,
+		default: 'initial',
+	},
+	minHeight: {
+		type: Number,
+		default: undefined,
+	},
+	maxHeight: {
+		type: Number,
+		default: undefined,
+	},
+	// grow: {
+	// 	type: Boolean,
+	// 	default: false,
+	// },
+	// shrink: {
+	// 	type: Boolean,
+	// 	default: false,
+	// },
 	rounded: {
 		type: Boolean,
 		default: false,
@@ -91,6 +132,38 @@ const containerClass = computed(() => {
 });
 
 const containerStyle = computed<CSSProperties>(() => {
+	let width = undefined;
+	if (props.width === 'fill') {
+		width = '100%';
+	} else if (props.width === 'hug') {
+		width = 'fit-content';
+	} else if (props.width === 'initial') {
+		width = undefined;
+	} else if (typeof props.width === 'number') {
+		width = getPx(props.width);
+	} else {
+		width = props.width;
+	}
+
+	const minWidth = getPx(props.minWidth);
+	const maxWidth = getPx(props.maxWidth);
+
+	let height = undefined;
+	if (props.height === 'fill') {
+		height = '100%';
+	} else if (props.height === 'hug') {
+		height = 'fit-content';
+	} else if (props.height === 'initial') {
+		height = undefined;
+	} else if (typeof props.height === 'number') {
+		height = `${props.height}px`;
+	} else {
+		height = props.height;
+	}
+
+	const minHeight = getPx(props.minHeight);
+	const maxHeight = getPx(props.maxHeight);
+
 	const padding = getCssTulipRule(props.padding);
 	const opacity = getPercent(getOpacityPercent(props.opacity));
 
@@ -98,6 +171,9 @@ const containerStyle = computed<CSSProperties>(() => {
 		? '9999px'
 		: getCssTulipRule(props.borderRadius)
 	;
+
+	// const flexGrow = getGrow(props.grow);
+	// const flexShrink = getShrink(props.shrink);
 
 	const bg = props.fillColor ? {
 		'--bg-idle': `var(--tds-${props.fillColor})`,
@@ -140,7 +216,17 @@ const containerStyle = computed<CSSProperties>(() => {
 		: getOverflow(props.overflow)
 	;
 
+	const background = getCoverBackground(props.backgroundImage);
+
 	return {
+		width,
+		maxWidth,
+		minWidth,
+		height,
+		maxHeight,
+		minHeight,
+		// flexShrink,
+		// flexGrow,
 		padding,
 		borderRadius,
 		opacity,
@@ -150,6 +236,7 @@ const containerStyle = computed<CSSProperties>(() => {
 		...reactionColor,
 		...bg,
 		...bc,
+		...background,
 	};
 });
 </script>

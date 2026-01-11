@@ -11,6 +11,7 @@
 
 <script lang="ts" setup>
 import { getOpacityPercent, getPercent } from '@/sdk/utils/css';
+import type { TextColorToken } from '@/sdk/types/types/ColorToken';
 
 type TTextTag = 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 type TTextAlign = 'left' | 'center' | 'right';
@@ -34,7 +35,7 @@ const props = defineProps({
 		default: 100,
 	},
 	color: {
-		type: String,
+		type: String as PropType<TextColorToken>,
 		default: 'space-primary',
 	},
 	align: {
