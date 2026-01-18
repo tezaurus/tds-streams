@@ -1,6 +1,7 @@
 <template>
 	<BaseButton
 		:fill-color="fillColor"
+		:icon-color="contentColor"
 		:label-color="contentColor"
 	/>
 </template>

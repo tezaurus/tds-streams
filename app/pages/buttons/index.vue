@@ -1,27 +1,234 @@
 <template>
-	<!-- x, m, s -->
-
-	<!-- Filled -->
-	<Flex
-		:gap="16"
+	<Container
+		:padding="16"
 	>
-		<FilledButton
-			size="s"
-			label="Press me"
-		/>
-
-		<FilledButton
-			size="m"
-			label="Press me"
-		/>
-
-		<FilledButton
-			size="l"
-			label="Press me"
-		/>
-	</Flex>
-
-	<!-- Ghost -->
-
-	<!-- Outline -->
+		<Flex
+			direction="column"
+			:gap="16"
+		>
+			<Text
+				text="Buttons"
+				token="headline-medium-500"
+			/>
+			<Flex
+				direction="column"
+				:gap="16"
+			>
+				<!-- Filled -->
+				<Flex
+					height="hug"
+					:gap="16"
+				>
+					<FilledButton
+						size="s"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+					<FilledButton
+						size="m"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+					<FilledButton
+						size="l"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+				</Flex>
+				<Flex
+					height="hug"
+					:gap="16"
+				>
+					<FilledButton
+						size="s"
+						label="Press me"
+						icon="close"
+						rounded
+						reverse
+					/>
+					<FilledButton
+						size="m"
+						label="Press me"
+						icon="close"
+						rounded
+						reverse
+					/>
+					<FilledButton
+						size="l"
+						label="Press me"
+						icon="close"
+						rounded
+						reverse
+					/>
+				</Flex>
+				<Flex
+					height="hug"
+					:gap="16"
+				>
+					<FilledButton
+						size="s"
+						label="Press me"
+						rounded
+					/>
+					<FilledButton
+						size="m"
+						label="Press me"
+						rounded
+					/>
+					<FilledButton
+						size="l"
+						label="Press me"
+						rounded
+					/>
+				</Flex>
+				<!-- Ghost -->
+				<Flex
+					height="hug"
+					:gap="16"
+				>
+					<GhostButton
+						size="s"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+					<GhostButton
+						size="m"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+					<GhostButton
+						size="l"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+				</Flex>
+				<!-- Outline -->
+				<Flex
+					height="hug"
+					:gap="16"
+				>
+					<OutlineButton
+						size="s"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+					<OutlineButton
+						size="m"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+					<OutlineButton
+						size="l"
+						label="Press me"
+						icon="close"
+						rounded
+					/>
+				</Flex>
+				<Flex
+					height="hug"
+					:gap="16"
+				>
+					<FilledButton
+						size="s"
+						icon="close"
+						rounded
+					/>
+					<FilledButton
+						size="s"
+						icon="close"
+					/>
+					<FilledButton
+						size="m"
+						icon="close"
+						rounded
+					/>
+					<FilledButton
+						size="m"
+						icon="close"
+					/>
+					<FilledButton
+						size="l"
+						icon="close"
+						rounded
+					/>
+					<FilledButton
+						size="l"
+						icon="close"
+					/>
+				</Flex>
+				<Flex
+					height="hug"
+					:gap="16"
+				>
+					<GhostButton
+						size="s"
+						icon="close"
+						rounded
+					/>
+					<GhostButton
+						size="s"
+						icon="close"
+					/>
+					<GhostButton
+						size="m"
+						icon="close"
+						rounded
+					/>
+					<GhostButton
+						size="m"
+						icon="close"
+					/>
+					<GhostButton
+						size="l"
+						icon="close"
+						rounded
+					/>
+					<GhostButton
+						size="l"
+						icon="close"
+					/>
+				</Flex>
+				<Flex
+					height="hug"
+					:gap="16"
+				>
+					<OutlineButton
+						size="s"
+						icon="close"
+						rounded
+					/>
+					<OutlineButton
+						size="s"
+						icon="close"
+					/>
+					<OutlineButton
+						size="m"
+						icon="close"
+						rounded
+					/>
+					<OutlineButton
+						size="m"
+						icon="close"
+					/>
+					<OutlineButton
+						size="l"
+						icon="close"
+						rounded
+					/>
+					<OutlineButton
+						size="l"
+						icon="close"
+					/>
+				</Flex>
+			</Flex>
+		</Flex>
+	</Container>
 </template>

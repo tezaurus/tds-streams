@@ -3,9 +3,9 @@ export type TonicColorToken = 'space' | 'black' | 'brand' | 'action' | 'danger' 
 export type SurfaceColorToken = `${TonicColorToken}-surface`;
 export type SurfaceItemColorToken = `${TonicColorToken}-surface-item`;
 export type ColorTokenRole = 'primary' | 'secondary' | 'outline' | 'outline-strong' | 'outline-stroke';
-export type FillColorToken = TonicColorToken | SurfaceColorToken | SurfaceItemColorToken;
+export type FillColorToken = SpecialColorToken | TonicColorToken | SurfaceColorToken | SurfaceItemColorToken;
 
-export type TextColorToken = `${TonicColorToken}-primary`
+export type TextColorToken = TonicColorToken | `${TonicColorToken}-primary`
 	| `${TonicColorToken}-secondary`
 	| `${SurfaceColorToken}-primary`
 	| `${SurfaceColorToken}-secondary`
