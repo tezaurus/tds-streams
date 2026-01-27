@@ -21,12 +21,12 @@ import type {
 import {
 	getCoverBackground,
 	getCssTulipRule,
-	// getGrow,
+	getGrow,
 	getOpacityPercent,
 	getOverflow,
 	getPercent,
 	getPx,
-	// getShrink,
+	getShrink,
 } from '@/sdk/utils/css';
 
 type TContainerSize = 'initial' | 'fill' | 'hug' | number | string;
@@ -88,14 +88,14 @@ const props = defineProps({
 		type: Number,
 		default: undefined,
 	},
-	// grow: {
-	// 	type: Boolean,
-	// 	default: false,
-	// },
-	// shrink: {
-	// 	type: Boolean,
-	// 	default: false,
-	// },
+	grow: {
+		type: Boolean,
+		default: false,
+	},
+	shrink: {
+		type: Boolean,
+		default: false,
+	},
 	rounded: {
 		type: Boolean,
 		default: false,
@@ -172,8 +172,8 @@ const containerStyle = computed<CSSProperties>(() => {
 		: getCssTulipRule(props.borderRadius)
 	;
 
-	// const flexGrow = getGrow(props.grow);
-	// const flexShrink = getShrink(props.shrink);
+	const flexGrow = getGrow(props.grow);
+	const flexShrink = getShrink(props.shrink);
 
 	const bg = props.fillColor ? {
 		'--bg-idle': `var(--tds-${props.fillColor})`,
@@ -225,8 +225,8 @@ const containerStyle = computed<CSSProperties>(() => {
 		height,
 		maxHeight,
 		minHeight,
-		// flexShrink,
-		// flexGrow,
+		flexShrink,
+		flexGrow,
 		padding,
 		borderRadius,
 		opacity,

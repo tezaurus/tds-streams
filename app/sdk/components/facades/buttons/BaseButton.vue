@@ -6,6 +6,7 @@
 		:padding="[0, buttonConfig[size].padding]"
 		:border-radius="rounded ? 9999 : 8"
 		reaction
+		shrink
 	>
 		<Flex
 			align-x="center"

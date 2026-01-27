@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import type { CSSProperties } from 'vue';
 import type { TextColorToken } from '@/sdk/types/types/ColorToken';
-import { getOpacityPercent, getPx } from '@/sdk/utils/css';
+import { getOpacityPercent, getPercent, getPx } from '@/sdk/utils/css';
 
 const props = defineProps({
 	name: {
@@ -57,7 +57,7 @@ const iconClass = computed<string[]>(() => {
 
 const iconStyle = computed<CSSProperties>(() => {
 	const color = `var(--tds-${props.color})`;
-	const opacity = getOpacityPercent(props.opacity);
+	const opacity = getPercent(getOpacityPercent(props.opacity));
 	const width = getPx(props.size);
 	const height = getPx(props.size);
 
@@ -70,7 +70,7 @@ const iconStyle = computed<CSSProperties>(() => {
 		'--svg-icon-stroke': color,
 		'--svg-icon-fill-opacity': 1,
 		'--svg-icon-stroke-opacity': 1,
-		'--svg-icon-stroke-width': 1,
+		'--svg-icon-stroke-width': 0,
 		'--svg-icon-width': width,
 		'--svg-icon-height': height,
 	};

@@ -84,6 +84,9 @@
 						rounded
 					/>
 				</Flex>
+
+				<Divider />
+
 				<!-- Ghost -->
 				<Flex
 					height="hug"
@@ -108,6 +111,9 @@
 						rounded
 					/>
 				</Flex>
+
+				<Divider />
+
 				<!-- Outline -->
 				<Flex
 					height="hug"
@@ -132,6 +138,9 @@
 						rounded
 					/>
 				</Flex>
+
+				<Divider />
+
 				<Flex
 					height="hug"
 					:gap="16"
